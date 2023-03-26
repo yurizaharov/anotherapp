@@ -1,0 +1,44 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: anotherapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: anotherapp
+  template:
+    metadata:
+      labels:
+        name: anotherapp
+    spec:
+      imagePullSecrets:
+        - name: 0zh-registry-cred
+      containers:
+        - name: anotherapp
+          image: anotherapp_image
+          ports:
+            - containerPort: 8080
+          imagePullPolicy: IfNotPresent
+          command:
+            - npm
+            - start
+          envFrom:
+            - configMapRef:
+                name: anotherapp-config
+          resources:
+            limits:
+              memory: 128Mi
+            requests:
+              cpu: 100m
+              memory: 64M
+          readinessProbe:
+            httpGet:
+              path: /ping
+              port: 8080
+            initialDelaySeconds: 30
+            periodSeconds: 10
+          lifecycle:
+            preStop:
+              exec:
+                command: ["sleep", "10"]

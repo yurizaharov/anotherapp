@@ -1,0 +1,17 @@
+kind: Ingress
+apiVersion: networking.k8s.io/v1
+metadata:
+  name: anotherapp
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: host
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: anotherapp
+                port:
+                  number: 8080
