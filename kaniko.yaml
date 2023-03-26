@@ -10,7 +10,7 @@ spec:
       args:
         - "--dockerfile=Dockerfile"
         - "--context=git://github.com/yurizaharov/anotherapp.git#refs/heads/main"
-        - "--destination=registry.0zh.ru/test/anotherapp:1.0.2"
+        - "--destination=registry.0zh.ru/test/anotherapp:1.0.3"
       volumeMounts:
         - name: kaniko-secret
           mountPath: /kaniko/.docker
