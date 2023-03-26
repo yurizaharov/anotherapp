@@ -1,0 +1,4 @@
+# skip files and folders
+src/node_modules
+
+src/package-lock.json
