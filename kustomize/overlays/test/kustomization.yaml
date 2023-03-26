@@ -15,5 +15,5 @@ patchesJson6902:
       group: networking.k8s.io
       version: v1
       kind: Ingress
-      name: testapp
+      name: anotherapp
     path: ingress-patch.yaml
