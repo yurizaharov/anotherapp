@@ -1,0 +1,15 @@
+- op: replace
+  path: /spec/replicas
+  value: 3
+
+- op: replace
+  path: /spec/minReadySeconds
+  value: 60
+
+- op: replace
+  path: /spec/strategy/rollingUpdate/maxSurge
+  value: 1
+
+- op: replace
+  path: /spec/strategy/rollingUpdate/maxUnavailable
+  value: 0

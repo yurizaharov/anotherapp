@@ -3,10 +3,15 @@ apiVersion: apps/v1
 metadata:
   name: anotherapp
 spec:
-  replicas: 1
+  minReadySeconds:
+  replicas:
   selector:
     matchLabels:
       name: anotherapp
+  strategy:
+    rollingUpdate:
+      maxSurge:
+      maxUnavailable:
   template:
     metadata:
       labels:

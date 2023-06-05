@@ -10,10 +10,16 @@ configMapGenerator:
     envs:
       - test.properties
       - ../../vars/1.0.3.properties
-patchesJson6902:
+patches:
   - target:
       group: networking.k8s.io
       version: v1
       kind: Ingress
       name: anotherapp
-    path: ingress-patch.yaml
+    path: patch-ingress.yaml
+  - target:
+      group: apps
+      version: v1
+      kind: Deployment
+      name: anotherapp
+    path: patch-deployment.yaml
