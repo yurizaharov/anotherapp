@@ -1,0 +1,4 @@
+include:
+  - project: common/pipeline
+    ref: main
+    file: /pipeline.yaml
