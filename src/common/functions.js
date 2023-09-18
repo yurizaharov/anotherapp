@@ -3,10 +3,14 @@ const logger = require('../common/logger');
 
 const functions = {
 
-    async getBackend (backendUrl, method) {
+    async getBackend (backendUrl, method, param) {
         let result;
         try {
-            const response = await axios.get(backendUrl + '/' + method);
+            let url;
+            !param
+                ? url = backendUrl + '/' + method
+                : url = backendUrl + '/' + method + '/' + param
+            const response = await axios.get( url );
             result = response.data;
         } catch (err) {
             if (!err.response) {

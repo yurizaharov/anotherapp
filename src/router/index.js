@@ -54,4 +54,14 @@ router
 
     })
 
+    .get('/api/query/:param', async function (req, res) {
+        const method = 'query';
+        const param = req.params.param;
+        const result = await functions.getBackend(backend, method, param);
+        res
+            .status(200)
+            .send(result)
+
+    })
+
 module.exports = router;

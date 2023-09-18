@@ -3,13 +3,13 @@ resources:
 images:
   - name: anotherapp_image
     newName: registry.0zh.ru/test/anotherapp
-    newTag: 1.0.3
+    newTag: 1.0.4
 namespace: testapp-test
 configMapGenerator:
   - name: anotherapp-config
     envs:
       - test.properties
-      - ../../vars/1.0.3.properties
+      - ../../vars/1.0.4.properties
 patches:
   - target:
       group: networking.k8s.io
