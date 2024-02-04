@@ -4,7 +4,7 @@ metadata:
   name: anotherapp
 spec:
   minReadySeconds:
-  replicas:
+#  replicas:
   selector:
     matchLabels:
       name: anotherapp
