@@ -1,22 +1,26 @@
 resources:
   - ../../base
+
 images:
   - name: anotherapp_image
     newName: registry.0zh.ru/anotherapp/anotherapp
     newTag: 1.0.4
-namespace: testapp-test
+
+namespace: anotherapp
+
 configMapGenerator:
   - name: anotherapp-config
     envs:
       - test.properties
       - ../../vars/1.0.4.properties
+
 patches:
   - target:
-      group: networking.k8s.io
+      group: gateway.networking.k8s.io
       version: v1
-      kind: Ingress
-      name: anotherapp
-    path: patch-ingress.yaml
+      kind: HTTPRoute
+      name: httproute
+    path: patch-httproute.yaml
   - target:
       group: apps
       version: v1
