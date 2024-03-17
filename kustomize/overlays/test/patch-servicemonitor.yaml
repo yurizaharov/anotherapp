@@ -1,0 +1,4 @@
+# Set destination name
+- op: replace
+  path: /spec/selector/matchLabels/app
+  value: anotherapp

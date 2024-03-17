@@ -1,12 +1,18 @@
 resources:
   - ../../base
 
+commonLabels:
+  app: anotherapp
+  env: c2
+
 images:
   - name: anotherapp_image
     newName: registry.0zh.ru/anotherapp/anotherapp
     newTag: 1.0.4
 
 namespace: anotherapp
+
+namePrefix: anotherapp-
 
 configMapGenerator:
   - name: anotherapp-config
@@ -25,5 +31,11 @@ patches:
       group: apps
       version: v1
       kind: Deployment
-      name: anotherapp
+      name: deployment
     path: patch-deployment.yaml
+  - target:
+      group: monitoring.coreos.com
+      version: v1
+      kind: ServiceMonitor
+      name: servicemonitor
+    path: patch-servicemonitor.yaml

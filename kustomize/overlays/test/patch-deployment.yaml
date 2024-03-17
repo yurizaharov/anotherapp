@@ -1,15 +1,40 @@
+# Container name
+- op: replace
+  path: /spec/template/spec/containers/0/name
+  value: anotherapp
+
+# Container config name
+- op: replace
+  path: /spec/template/spec/containers/0/envFrom/0/configMapRef/name
+  value: anotherapp-config
+
+# Number of replicas
 #- op: replace
 #  path: /spec/replicas
 #  value: 3
 
+# Update strategy
 - op: replace
   path: /spec/minReadySeconds
   value: 60
 
 - op: replace
-  path: /spec/strategy/rollingUpdate/maxSurge
-  value: 1
+  path: /spec/strategy/rollingUpdate
+  value:
+    maxSurge: 1
+    maxUnavailable: 0
 
+# Container limits & requests
 - op: replace
-  path: /spec/strategy/rollingUpdate/maxUnavailable
-  value: 0
+  path: /spec/template/spec/containers/0/resources
+  value:
+    limits:
+      memory: 128M
+    requests:
+      cpu: 100m
+      memory: 64M
+
+# Image pull secrets
+- op: replace
+  path: /spec/template/spec/imagePullSecrets/0/name
+  value: 0zh-registry-cred

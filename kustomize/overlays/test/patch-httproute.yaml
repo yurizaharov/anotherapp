@@ -1,8 +1,3 @@
-# Set name
-- op: replace
-  path: /metadata/name
-  value: anotherapp
-
 # Set hostname
 - op: replace
   path: /spec/hostnames/0
@@ -11,7 +6,7 @@
 # Set destination
 - op: replace
   path: /spec/rules/0/backendRefs/0/name
-  value: anotherapp
+  value: anotherapp-service
 
 - op: replace
   path: /spec/rules/0/backendRefs/0/port
