@@ -6,7 +6,7 @@ commonLabels:
   env: c2
 
 images:
-  - name: anotherapp_image
+  - name: placeholder-image
     newName: registry.0zh.ru/anotherapp/anotherapp
     newTag: 1.0.4
 
